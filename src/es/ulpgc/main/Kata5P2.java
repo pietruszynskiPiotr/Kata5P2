@@ -8,13 +8,13 @@ import es.ulpgc.view.DisplayHistogram;
 import es.ulpgc.model.Histogram;
 import es.ulpgc.model.Mail;
 import es.ulpgc.view.MailHistogramBuilder;
-import es.ulpgc.view.MailListReader;
+import es.ulpgc.view.MailListReaderBD;
 import java.io.IOException;
 import java.util.List;
 
 /**
  *
- * @author piotr
+ * @author piotrgit 
  */
 public class Kata5P2 {
 
@@ -29,8 +29,7 @@ public class Kata5P2 {
     }
 
     private List<Mail> input() throws IOException {
-        MailListReader reader = new MailListReader();
-        return reader.read("emails.txt");
+        return new MailListReaderBD().read();
     }
 
     private Histogram<String> process(List<Mail> mails) {
